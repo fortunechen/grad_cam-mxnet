@@ -90,7 +90,6 @@ def get_cam(conv_out, conv_out_grad):
     cam = np.uint8(cam * 255)
     return cam
 
-
 def get_img_heatmap(orig_img, activation_map):
     """Draw a heatmap on top of the original image using intensities from activation_map"""
     heatmap = cv2.applyColorMap(activation_map, cv2.COLORMAP_JET)
@@ -106,4 +105,10 @@ def get_heatmap(net, preprocessed_img, orig_img, conv_layer_name):
     cam = cv2.resize(cam, preprocessed_img.shape[2:])
     heatmap, img_heatmap = get_img_heatmap(orig_img, cam)
     return heatmap, img_heatmap
+
+def visualize_gradcam(net, input_x, origin_img, conv_layer_name):
+    """Create Grad-CAM visualizations using the network 'net' and the image at 'img_path'
+    conv_layer_name is the name of the top most layer of the feature extractor"""
+    heatmap, img_heatmap = get_heatmap(net, input_x, origin_img, conv_layer_name)
+    return np.hstack((origin_img, heatmap, img_heatmap))
 

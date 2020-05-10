@@ -1,12 +1,10 @@
-## Grad CAM implementation by MXNet
+## CNN visulization implemented by MXNet
 
 ### Usage
-```python gradcam.py --image-path imgs/bird.jpg```
+```python gradcam.py --image-path imgs/bird.jpg  --vis_method gardcam```
 
-Current official implementation of grad-cam only supports the visualization of conv2d and need recode the network architecture. Ours supports any layer in the network and can use official network API. 
-
-you can change the pretrained nwtwork and layers to be visulized in the code ```gradcam.py```
+Currently, support grad-cam and smooth-grad
 
 ### Other implementation
-- [Pytorch](https://github.com/jacobgil/pytorch-grad-cam)
-- [MXNet official](https://github.com/apache/incubator-mxnet/blob/8ac7fb930fdfa6ef3ac61be7569a17eb95f1ad4c/docs/tutorial_utils/vision/cnn_visualization/gradcam.py)
+- [Pytorch Grad-CAM](https://github.com/jacobgil/pytorch-grad-cam)
+- [MXNet official Grad-CAM](https://github.com/apache/incubator-mxnet/blob/8ac7fb930fdfa6ef3ac61be7569a17eb95f1ad4c/docs/tutorial_utils/vision/cnn_visualization/gradcam.py)
